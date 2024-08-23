@@ -1,0 +1,46 @@
+<form action="">
+    <div>
+        <label for="">Ingrese un evento</label>
+        <input #evento type="text">
+    </div>
+    <div>
+        <select #categoria_id >
+            @for (item of dataCategoria; track $index) {
+            <option value="{{item.id}}">{{item.categoria}}</option>
+            }
+        </select>
+    </div>
+
+    <button type="button" (click)="saveEvent(evento, categoria_id)">Guardar</button>
+</form>
+
+<br>
+<br>
+<label for="">Busqueda</label>
+<div>
+    <select #id >
+        @for (item of dataCategoria; track $index) {
+        <option value="{{item.id}}">{{item.categoria}}</option>
+        }
+    </select>
+</div>
+<button type="button" (click)="getE(id)">Buscar</button>
+
+<table>
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>Evento</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let item of dataEvent">
+        <tr>
+            <td>{{item.id}}</td>
+            <td>{{item.evento}}</td>
+        </tr>
+    </tbody>
+</table>
+<br>
+
+<button><a routerLink="/categoria">Categoria</a></button>
+
